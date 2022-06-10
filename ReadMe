@@ -1,0 +1,7 @@
+Note: This Demo i have used a local json file to get the data because i was trying to get those data using API but API was not
+responding me. Therefore, I have saved those data in file with JSON format and I was implementing this demo using file and perform the operations as mentioned.
+So I have created a retrofit api calling and it's interface. I have not removed it and remain same. I haven't use this due to API 404 status code.
+
+
+Map: I have implement Google Map and key of the map in Android Manifest which i removed.
+ If you place your working key over there Google Map feature will working fine.
