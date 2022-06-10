@@ -38,7 +38,15 @@ class DeliveryRepository(
             //Check the condition where delivery table has rows or not if it has not then it's insert due to
             // avoid the duplication of the records
             if (!deliveryDatabase.deliveryDao().isExists()) {
-                val deliveryItem: MutableList<DeliveryItem> = Gson().fromJson(String(buffer),
+                val deliveryItem: MutableList<DeliveryItem> = Gson().fromJson(
+                    String(buffer),
+                    object : TypeToken<MutableList<DeliveryItem>>() {}.type
+                )
+                deliveryDatabase.deliveryDao().addDelivery(deliveryItem)
+            } else {
+                deliveryDatabase.clearAllTables()
+                val deliveryItem: MutableList<DeliveryItem> = Gson().fromJson(
+                    String(buffer),
                     object : TypeToken<MutableList<DeliveryItem>>() {}.type
                 )
                 deliveryDatabase.deliveryDao().addDelivery(deliveryItem)
